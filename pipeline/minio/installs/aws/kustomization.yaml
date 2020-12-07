@@ -21,7 +21,5 @@ secretGenerator:
   behavior: merge
 generatorOptions:
   disableNameSuffixHash: true
-patchesStrategicMerge:
-- aws-configuration-patch.yaml
 commonLabels:
   application-crd-id: kubeflow-pipelines
