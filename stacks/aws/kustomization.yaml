@@ -19,8 +19,7 @@ resources:
   - ../../mpi-job/mpi-operator/overlays/application
   - ../../katib/installs/katib-standalone
   # Pipeline
-  - ../../pipeline/minio/installs/generic
-  - ../../pipeline/mysql/installs/generic
+  - ../../pipeline/minio/installs/aws
   - ../../pipeline/installs/multi-user
   - ../../argo/base_v3
   # Serving components
@@ -31,7 +30,8 @@ resources:
   # Kubernetes resources - anonymous user
   - ../../default-install/base
   # Metadata
-  - ../../metadata/v3
+  - ../../metadata/v3-external-db
+
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
