@@ -1,0 +1,25 @@
+name: release_manifests
+on: [push]
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Remove previous release
+        uses: dev-drprasad/delete-tag-and-release@v0.1.2
+        with:
+          delete_release: true # default: false
+          tag_name: v0.1.0 # tag name to delete
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v0.1.0
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
